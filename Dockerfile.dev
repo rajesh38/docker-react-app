@@ -4,5 +4,13 @@ WORKDIR /app
 COPY package.json .
 RUN npm install
 
+# -------
+# The following statement can be commented
+# if we use volume mapping between the docker container
+# and the local project directory (to keep files in sync between local system and docker container)
+# through docker command or docker-compose.yml file
+# but it is advised not to remove the COPY statement in any scenario.
+# -------
 COPY . .
+
 CMD ["npm", "run", "start"]
